@@ -24,9 +24,9 @@ namespace AnotherStrangerMe
         {
             ConsoleKeyInfo key;
             Console.SetCursorPosition(21, 18);
-            string input = Console.ReadLine();
+            key = Console.ReadKey();
 
-            if (input == "1")
+            if (key.Key == ConsoleKey.D1)
             {
                 Console.Clear();
                 Player player = new Player();
@@ -35,12 +35,12 @@ namespace AnotherStrangerMe
                 player.Input();
             }
 
-            else if (input == "2")
+            else if (key.Key == ConsoleKey.D2)
             {
                 Console.Clear();
                 string line = controls.ReadToEnd();
                 Console.WriteLine(line);
-                key = Console.ReadKey();
+                
 
                 if (key.Key == ConsoleKey.S)
                 {
@@ -59,7 +59,7 @@ namespace AnotherStrangerMe
                     ChooseNumber();
                 }
             }
-            else if (input == "3")
+            else if (key.Key == ConsoleKey.D3)
             {
                 Console.Clear();
                 Console.WriteLine("Dieses Textadventure wurde von Nico Engelhardt, Lucas Zacharias und Kevin Holst erdacht und entwickelt");
@@ -84,7 +84,7 @@ namespace AnotherStrangerMe
                     ChooseNumber();
                 }
             }
-            else if (input == "4")
+            else if (key.Key == ConsoleKey.D4)
             {
                 Environment.Exit(0);
             }

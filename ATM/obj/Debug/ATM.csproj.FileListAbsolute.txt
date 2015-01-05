@@ -10,3 +10,9 @@ C:\Users\Lucas\Documents\GitHub\AnotherStrangerMe\ATM\obj\Debug\ATM.pdb
 C:\Users\Lucas\Documents\GitHub\AnotherStrangerMe\ATM\bin\Debug\ATM.exe
 C:\Users\Lucas\Documents\GitHub\AnotherStrangerMe\ATM\bin\Debug\ATM.pdb
 C:\Users\Lucas\Documents\GitHub\AnotherStrangerMe\ATM\obj\Debug\ATM.csprojResolveAssemblyReference.cache
+C:\Users\Scr4py\Documents\GitHub\AnotherStrangerMe\ATM\bin\Debug\ATM.exe.config
+C:\Users\Scr4py\Documents\GitHub\AnotherStrangerMe\ATM\obj\Debug\ATM.exe
+C:\Users\Scr4py\Documents\GitHub\AnotherStrangerMe\ATM\obj\Debug\ATM.pdb
+C:\Users\Scr4py\Documents\GitHub\AnotherStrangerMe\ATM\bin\Debug\ATM.exe
+C:\Users\Scr4py\Documents\GitHub\AnotherStrangerMe\ATM\bin\Debug\ATM.pdb
+C:\Users\Scr4py\Documents\GitHub\AnotherStrangerMe\ATM\obj\Debug\ATM.csprojResolveAssemblyReference.cache
