@@ -25,3 +25,6 @@ C:\Users\Lucas\Desktop\GPBP\AnotherStrangerMe\AnotherStrangerMe\obj\Debug\Anothe
 C:\Users\Lucas\Desktop\GPBP\AnotherStrangerMe\AnotherStrangerMe\obj\Debug\AnotherStrangerMe.csprojResolveAssemblyReference.cache
 C:\Users\Lucas\Desktop\GPBP\AnotherStrangerMe\AnotherStrangerMe\bin\Debug\AnotherStrangerMe.exe
 C:\Users\Lucas\Desktop\GPBP\AnotherStrangerMe\AnotherStrangerMe\bin\Debug\AnotherStrangerMe.pdb
+C:\Users\Lucas\Documents\GitHub\AnotherStrangerMe\AnotherStrangerMe\bin\Debug\AnotherStrangerMe.exe.config
+C:\Users\Lucas\Documents\GitHub\AnotherStrangerMe\AnotherStrangerMe\obj\Debug\AnotherStrangerMe.exe
+C:\Users\Lucas\Documents\GitHub\AnotherStrangerMe\AnotherStrangerMe\obj\Debug\AnotherStrangerMe.pdb

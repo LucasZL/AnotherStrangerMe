@@ -35,6 +35,8 @@ namespace AnotherStrangerMe
 
         public void Input()
         {
+            ClearTopLane();
+
             Console.SetCursorPosition(1, 31);
             string read = Console.ReadLine().ToLower();
 
@@ -238,14 +240,14 @@ namespace AnotherStrangerMe
 
         public void ClearTopLane()
         {
+            Console.WriteLine("hdkgkk");
             int top = Console.CursorTop;
-            if (top > 27)
+            if (top > 12)
             {
                 Console.SetCursorPosition(1, 9);
                 Console.Write("                                                                               ");
                 Console.MoveBufferArea(0, 10, 20, 10, 0, 11);
                 inputY--;
-                
             }
         }
     }
