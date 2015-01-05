@@ -161,7 +161,14 @@ namespace AnotherStrangerMe
             }
             else 
             {
-                FalseInput(words[0], "konnte nicht ausgeführt werden!");
+                if (words[0] != "")
+                {
+                    FalseInput(words[0], "konnte nicht ausgeführt werden!");
+                }
+                else
+                {
+                    FalseInput("Kein Befehl eingegeben!", "");
+                }
             }
             ClearInput();
         }
@@ -246,8 +253,10 @@ namespace AnotherStrangerMe
             {
                 
             }
-            Console.SetCursorPosition(0, 28);
-            Console.WriteLine("|										|                       |");
+            Console.MoveBufferArea(1, 10, 79, 19, 1, 9);
+            Console.SetCursorPosition(0, inputY);
+            Console.SetCursorPosition(0, 8);
+            Console.WriteLine("|_______________________________|_______________________________________________|_______________________|");
         }
     }
 }
