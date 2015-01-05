@@ -5,4 +5,4 @@ Untersuche...	untersucht einen Gegenstand
 Töte...		tötet Gegner
 Umschauen	Der Raum wird erklärt
 
-Druecke die Enter oder die M-Taste um zum Menü zurückzukehren oder drücke 'S' um das Spiel zu Starten
+Drücke die Enter oder die M-Taste um zum Menü zurückzukehren oder drücke 'S' um das Spiel zu Starten
