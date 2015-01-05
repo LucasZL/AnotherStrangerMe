@@ -1,1 +1,0 @@
-1,spiegel,3,messer,4,fenster,1,tuer,5,tuer,3,frau,2,wachmann|1,spiegel,4,fenster,1,tuer,5,tuer|1,spiegel,4,fenster,1,tuer,5,tuer|1,spiegel,4,fenster,1,tuer,5,tuer|1,spiegel,4,fenster,1,tuer,5,tuer|1,spiegel,4,fenster,1,tuer,5,tuer|1,spiegel,4,fenster,1,tuer,5,tuer|1,spiegel,4,fenster,1,tuer,5,tuer|1,spiegel,4,fenster,1,tuer,5,tuer
