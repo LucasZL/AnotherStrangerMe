@@ -13,12 +13,14 @@ namespace AnotherStrangerMe
         public Room room;
         int roomNumber = 1;
         public int inventoryNumber;
-        public int inputY = 9;
+        public int inputY = 28;
         public string[] commandArray;
         public string[] weaponArray;
         public string name;
         string[] words;
         public List<string> Inventory;
+        public int iCounter = 0;
+        string[] lastInputs;
         
 
         public Player()
@@ -27,6 +29,7 @@ namespace AnotherStrangerMe
             room = roomContent.Room1();
             Inventory = new List<string>();
             name = "Luigi";
+            lastInputs = new string[18];
             commandArray = new string[] { "gehe", "töte", "nehme", "untersuche", "umschauen", "benutze" };
             weaponArray = new string[] { "messer", "schrotflinte", "frau", "pistole" };
         }
@@ -35,7 +38,6 @@ namespace AnotherStrangerMe
 
         public void Input()
         {
-            ClearTopLane();
 
             Console.SetCursorPosition(1, 31);
             string read = Console.ReadLine().ToLower();
@@ -206,29 +208,29 @@ namespace AnotherStrangerMe
 
         public void WriteAnswer(string answer)
         {
+            ClearTopLane();
             Console.SetCursorPosition(1, inputY);
             Console.WriteLine(answer);
-            inputY++;
         }
 
         public void FalseInput(string falseWord, string reason)
         {
+            ClearTopLane();
             Console.SetCursorPosition(1, inputY);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write(FirstUpper(falseWord));
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write(" " + reason);
-            inputY++;
         }
 
         public void RightInput(string rightWord, string reason)
         {
+            ClearTopLane();
             Console.SetCursorPosition(1, inputY);
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.Write(FirstUpper(rightWord));
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write(" " + reason);
-            inputY++;
         }
 
         public void ClearInputAndWaitForNextInput()
@@ -240,14 +242,12 @@ namespace AnotherStrangerMe
 
         public void ClearTopLane()
         {
-            int top = Console.CursorTop;
-            if (top > 12)
+            foreach (var inputs in lastInputs)
             {
-                Console.SetCursorPosition(1, 9);
-                Console.Write("                                                                               ");
-                Console.MoveBufferArea(0, 10, 20, 10, 0, 11);
-                inputY--;
+                
             }
+            Console.SetCursorPosition(0, 28);
+            Console.WriteLine("|										|                       |");
         }
     }
 }

@@ -4,3 +4,9 @@ c:\users\lucas\documents\visual studio 2013\Projects\Bachelor\ATM\ATM\bin\Debug\
 c:\users\lucas\documents\visual studio 2013\Projects\Bachelor\ATM\ATM\obj\Debug\ATM.csprojResolveAssemblyReference.cache
 c:\users\lucas\documents\visual studio 2013\Projects\Bachelor\ATM\ATM\obj\Debug\ATM.exe
 c:\users\lucas\documents\visual studio 2013\Projects\Bachelor\ATM\ATM\obj\Debug\ATM.pdb
+C:\Users\Lucas\Documents\GitHub\AnotherStrangerMe\ATM\bin\Debug\ATM.exe.config
+C:\Users\Lucas\Documents\GitHub\AnotherStrangerMe\ATM\obj\Debug\ATM.exe
+C:\Users\Lucas\Documents\GitHub\AnotherStrangerMe\ATM\obj\Debug\ATM.pdb
+C:\Users\Lucas\Documents\GitHub\AnotherStrangerMe\ATM\bin\Debug\ATM.exe
+C:\Users\Lucas\Documents\GitHub\AnotherStrangerMe\ATM\bin\Debug\ATM.pdb
+C:\Users\Lucas\Documents\GitHub\AnotherStrangerMe\ATM\obj\Debug\ATM.csprojResolveAssemblyReference.cache
