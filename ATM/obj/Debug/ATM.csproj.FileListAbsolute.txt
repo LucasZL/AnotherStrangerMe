@@ -16,3 +16,9 @@ C:\Users\Scr4py\Documents\GitHub\AnotherStrangerMe\ATM\obj\Debug\ATM.pdb
 C:\Users\Scr4py\Documents\GitHub\AnotherStrangerMe\ATM\bin\Debug\ATM.exe
 C:\Users\Scr4py\Documents\GitHub\AnotherStrangerMe\ATM\bin\Debug\ATM.pdb
 C:\Users\Scr4py\Documents\GitHub\AnotherStrangerMe\ATM\obj\Debug\ATM.csprojResolveAssemblyReference.cache
+F:\Programmieren\NET\AnotherStrangerMe\ATM\bin\Debug\ATM.exe.config
+F:\Programmieren\NET\AnotherStrangerMe\ATM\obj\Debug\ATM.exe
+F:\Programmieren\NET\AnotherStrangerMe\ATM\obj\Debug\ATM.pdb
+F:\Programmieren\NET\AnotherStrangerMe\ATM\bin\Debug\ATM.exe
+F:\Programmieren\NET\AnotherStrangerMe\ATM\bin\Debug\ATM.pdb
+F:\Programmieren\NET\AnotherStrangerMe\ATM\obj\Debug\ATM.csprojResolveAssemblyReference.cache

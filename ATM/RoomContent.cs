@@ -20,9 +20,9 @@ namespace AnotherStrangerMe
         public RoomContent()
         {
             roomList = new List<Room>();
-            arrayReader = new StreamReader("objectList.txt");
-            description = new StreamReader("roomDescription.txt");
-            shortdescription = new StreamReader("shortRoomDescription.txt");
+            arrayReader = new StreamReader("objectList.txt", Encoding.UTF8);
+            description = new StreamReader("roomDescription.txt", Encoding.UTF8);
+            shortdescription = new StreamReader("shortRoomDescription.txt", Encoding.UTF8);
             roomArrayCommands = arrayReader.ReadToEnd().Split(new Char[] { '|' });
             roomDescription = description.ReadToEnd().Split(new Char[] { '|' });
             shortDescriptionArray = shortdescription.ReadToEnd().Split(new Char[] { '|' });
@@ -38,10 +38,10 @@ namespace AnotherStrangerMe
         {
             for (int i = 0; i < roomArrayCommands.Length; i++)
             {
-                roomList.Add(new Room(roomArrayCommands[i].Split(new Char[] { ',' }), roomDescription[i],shortDescriptionArray[i]));
+                roomList.Add(new Room(roomArrayCommands[i].Split(new Char[] { ',' }), roomDescription[i], shortDescriptionArray[i]));
             }
         }
-        
+
 
         public static void NextRoom(int roomNumber, Room currentRoom, Player player)
         {
@@ -49,7 +49,7 @@ namespace AnotherStrangerMe
             player.room = roomList[roomNumber];
         }
 
-        
+
 
     }
 }
