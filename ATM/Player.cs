@@ -124,9 +124,19 @@ namespace AnotherStrangerMe
                 }
                 if (foundItem)
                 {
+                    int entryCounter = 0;
                     Inventory.Add(FirstUpper(words[inventoryNumber]));
                     RightInput(FirstUpper(words[inventoryNumber]), "wurde dem Inventar hinzugefügt!");
                     SwitchItemInArray(room.RoomObjects, words[inventoryNumber], "lksrughxkdlsujhg");
+                    foreach (var entry in room.shortDescriptionArray)
+                    {
+                        entryCounter++;
+                        if (entry == words[inventoryNumber])
+                        {
+                            room.shortDescriptionArray[entryCounter-1] = "";
+                            room.SideDescription();
+                        }
+                    }
                 }
                 else
                 {

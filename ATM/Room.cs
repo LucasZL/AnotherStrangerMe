@@ -44,6 +44,7 @@ namespace AnotherStrangerMe
 
         public void SideDescription()
         {
+            Console.MoveBufferArea(0, 35, 23, 7, 81, 9);
             int iCounter = 9;
             shortDescriptionArray = shortDescritpion.Split(',');
             foreach (var shortDes in shortDescriptionArray)
