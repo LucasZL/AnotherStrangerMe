@@ -10,8 +10,8 @@ namespace AnotherStrangerMe
 {
     class Intro
     {
-        StreamReader intro = new StreamReader("Intro.txt", System.Text.Encoding.Default);
-        StreamReader controls = new StreamReader("controls.txt", System.Text.Encoding.Default);
+        StreamReader intro = new StreamReader("Intro.txt", Encoding.UTF8);
+        StreamReader controls = new StreamReader("controls.txt", Encoding.UTF8);
 
         public void DrawText()
         {

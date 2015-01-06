@@ -9,8 +9,8 @@ namespace AnotherStrangerMe
 {
     class Layout
     {
-        StreamReader intro = new StreamReader("intro.txt");
-        StreamReader layout = new StreamReader("layout.txt");
+        StreamReader intro = new StreamReader("intro.txt", Encoding.UTF8);
+        StreamReader layout = new StreamReader("layout.txt", Encoding.UTF8);
 
         public void DrawIntro()
         {
