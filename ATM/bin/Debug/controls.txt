@@ -1,8 +1,8 @@
-Gehe zu... 	zu einem Objekt gehen
-Nehme...	einen Gegenstand dem Inventar hinzufügen
-Benutze...	einen Gegenstand benutzen (nur vom Inventar möglich)
+ï»¿Gehe zu... 	zu einem Objekt gehen
+Nehme...	einen Gegenstand dem Inventar hinzufÃ¼gen
+Benutze...	einen Gegenstand benutzen (nur vom Inventar mÃ¶glich)
 Untersuche...	untersucht einen Gegenstand
-Töte...		tötet Gegner
-Umschauen	Der Raum wird erklärt
+TÃ¶te...		tÃ¶tet Gegner
+Umschauen	Der Raum wird erklÃ¤rt
 
-Drücke die Enter oder die M-Taste um zum Menü zurückzukehren oder drücke 'S' um das Spiel zu Starten
+DrÃ¼cke die Enter oder die M-Taste um zum MenÃ¼ zurÃ¼ckzukehren oder drÃ¼cke 'S' um das Spiel zu Starten
