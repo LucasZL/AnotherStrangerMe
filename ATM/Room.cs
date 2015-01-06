@@ -37,7 +37,7 @@ namespace AnotherStrangerMe
             descriptionArray = description.Split(']');
             foreach (var line in descriptionArray)
             {
-                player.WriteAnswer(descriptionArray[iCounter]);
+                Content.WriteAnswer(descriptionArray[iCounter], player);
                 iCounter++;
             }
         }
@@ -52,7 +52,7 @@ namespace AnotherStrangerMe
                 for (int i = 0; i < shortDes.Length; i++)
                 {
                     Console.SetCursorPosition(81, iCounter);
-                    Console.WriteLine("- "+ Player.FirstUpper(shortDes));
+                    Console.WriteLine("- "+ Content.FirstUpper(shortDes));
                     Thread.Sleep(100);
                 }
                 iCounter++;

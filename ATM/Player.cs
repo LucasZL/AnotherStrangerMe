@@ -59,13 +59,13 @@ namespace AnotherStrangerMe
                 {
                     if(words[iCount] == "tuer")
                     {
-                        WriteAnswer("Du bist in den nächsten Raum gegangen");
+                        Content.WriteAnswer("Du bist in den nächsten Raum gegangen", this);
                         RoomContent.NextRoom(roomNumber, room, this);
                         roomNumber++;
                     }
                     else
                     {
-                        WriteAnswer("Du bist zum / zur " + words[iCount] + " gegangen");
+                        Content.WriteAnswer("Du bist zum / zur " + words[iCount] + " gegangen", this);
                     }
                 }
                 else
@@ -85,8 +85,8 @@ namespace AnotherStrangerMe
                 }
                 if (foundItem)
                 {
-                    WriteAnswer("Mit was möchtest du " + words[iCount] + " töten");
-                    ClearInputAndWaitForNextInput();
+                    Content.WriteAnswer("Mit was möchtest du " + words[iCount] + " töten", this);
+                    Content.ClearInputAndWaitForNextInput();
                     string weapon = Console.ReadLine();
                     foreach (var item in Inventory)
                     {
@@ -96,20 +96,20 @@ namespace AnotherStrangerMe
                             {
                                 if (weapons == weapon)
                                 {
-                                    WriteAnswer("Du hast " + words[iCount] + " mit " + weapon + " getötet, bist du stolz auf dich?");
+                                    Content.WriteAnswer("Du hast " + words[iCount] + " mit " + weapon + " getötet, bist du stolz auf dich?", this);
                                     words[iCount] = "hsgsrgowsihosifskgjoisjgfsij";
                                 }
                             }
                         }
                         else
                         {
-                            FalseInput(weapon, "wurde im Inventar nicht gefunden!");
+                            Content.FalseInput(weapon, "wurde im Inventar nicht gefunden!", this);
                         }
                     }
                 }
                 else
                 {
-                    FalseInput(words[iCount], "konnte nicht angegriffen werden!");
+                    Content.FalseInput(words[iCount], "konnte nicht angegriffen werden!", this);
                 }
             } 
             //nehme
@@ -125,9 +125,9 @@ namespace AnotherStrangerMe
                 if (foundItem)
                 {
                     int entryCounter = 0;
-                    Inventory.Add(FirstUpper(words[inventoryNumber]));
-                    RightInput(FirstUpper(words[inventoryNumber]), "wurde dem Inventar hinzugefügt!");
-                    SwitchItemInArray(room.RoomObjects, words[inventoryNumber], "lksrughxkdlsujhg");
+                    Inventory.Add(Content.FirstUpper(words[inventoryNumber]));
+                    Content.RightInput(Content.FirstUpper(words[inventoryNumber]), "wurde dem Inventar hinzugefügt!", this);
+                    Content.SwitchItemInArray(room.RoomObjects, words[inventoryNumber], "lksrughxkdlsujhg");
                     foreach (var entry in room.shortDescriptionArray)
                     {
                         entryCounter++;
@@ -140,7 +140,7 @@ namespace AnotherStrangerMe
                 }
                 else
                 {
-                    FalseInput(FirstUpper(words[inventoryNumber]), "konnte dem Inventar nicht hinzugefügt werden!");
+                    Content.FalseInput(Content.FirstUpper(words[inventoryNumber]), "konnte dem Inventar nicht hinzugefügt werden!", this);
                 }
                 UpdateInventory();
             } 
@@ -155,7 +155,7 @@ namespace AnotherStrangerMe
             //umgucken
             else if (input == commandArray[4])
             {
-                WriteAnswer("Du siehst dich in dem Raum um:");
+                Content.WriteAnswer("Du siehst dich in dem Raum um:", this);
                 room.WriteDescritipon(this);
                 room.SideDescription();
             } 
@@ -173,23 +173,16 @@ namespace AnotherStrangerMe
             {
                 if (words[0] != "")
                 {
-                    FalseInput(words[0], "konnte nicht ausgeführt werden!");
+                    Content.FalseInput(words[0], "konnte nicht ausgeführt werden!", this);
                 }
                 else
                 {
-                    FalseInput("Kein Befehl eingegeben!", "");
+                    Content.FalseInput("Kein Befehl eingegeben!", "", this);
                 }
             }
-            ClearInput();
+            Content.ClearInput(this);
         }
-        public static string FirstUpper(string upper)
-        {
-            if (String.IsNullOrEmpty(upper))
-            {
-                return "";
-            }
-            return upper.First().ToString().ToUpper() + upper.Substring(1);
-        }
+        
 
         public void UpdateInventory()
         {
@@ -200,73 +193,6 @@ namespace AnotherStrangerMe
                 Console.WriteLine(item);
                 inventoryY++;
             }
-        }
-
-        public void SwitchItemInArray(string[] array, string originalData, string newData)
-        {
-            int iCounter = 0;
-            foreach (var testString in array)
-            {
-                if (testString == originalData)
-                {
-                    array[iCounter] = newData;
-                    break;
-                }
-                iCounter++;
-            }
-        }
-
-        public void ClearInput()
-        {
-            Console.SetCursorPosition(0, 31);
-            Console.WriteLine("|                                                                                                       |");
-            Input();
-        }
-
-        public void WriteAnswer(string answer)
-        {
-            ClearTopLane();
-            Console.SetCursorPosition(1, inputY);
-            Console.WriteLine(answer);
-        }
-
-        public void FalseInput(string falseWord, string reason)
-        {
-            ClearTopLane();
-            Console.SetCursorPosition(1, inputY);
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write(FirstUpper(falseWord));
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write(" " + reason);
-        }
-
-        public void RightInput(string rightWord, string reason)
-        {
-            ClearTopLane();
-            Console.SetCursorPosition(1, inputY);
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.Write(FirstUpper(rightWord));
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write(" " + reason);
-        }
-
-        public void ClearInputAndWaitForNextInput()
-        {
-            Console.SetCursorPosition(0, 31);
-            Console.WriteLine("|                                                                                                       |");
-            Console.SetCursorPosition(1, 31);
-        }
-
-        public void ClearTopLane()
-        {
-            foreach (var inputs in lastInputs)
-            {
-                
-            }
-            Console.MoveBufferArea(1, 10, 79, 19, 1, 9);
-            Console.SetCursorPosition(0, inputY);
-            Console.SetCursorPosition(0, 8);
-            Console.WriteLine("|_______________________________|_______________________________________________|_______________________|");
         }
     }
 }
