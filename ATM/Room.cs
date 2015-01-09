@@ -25,6 +25,7 @@ namespace AnotherStrangerMe
             this.RoomObjects = RoomObjects;
             this.description = description;
             this.shortDescritpion = shortDescritpion;
+            shortDescriptionArray = shortDescritpion.Split(',');
         }
         public Room(string[] array)
         {
@@ -46,7 +47,6 @@ namespace AnotherStrangerMe
         {
             Console.MoveBufferArea(0, 35, 23, 7, 81, 9);
             int iCounter = 9;
-            shortDescriptionArray = shortDescritpion.Split(',');
             foreach (var shortDes in shortDescriptionArray)
             {
                 for (int i = 0; i < shortDes.Length; i++)
