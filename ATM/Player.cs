@@ -115,7 +115,7 @@ namespace AnotherStrangerMe
             //nehme
             else if (input == commandArray[2])
             {
-                inventoryNumber = 0;
+                inventoryNumber = 1;
                 bool foundItem = false;
                 for (int i = 1; i < words.Length; i++)
                 {
@@ -162,11 +162,41 @@ namespace AnotherStrangerMe
             //benutzen
             else if (input == commandArray[5])
             {
+                bool getItem = false;
                 int iCount = 0;
                 for (int i = 1; i < words.Length; i++)
                 {
-                    room.proofInput("1", words[i]);
+                    getItem = room.proofInput("1", words[i]);
                     iCount++;
+
+                    if (words[i].ToLower() == "spiegel")
+                    {
+                        
+                    }
+                    if (getItem)
+                    {
+                        Content.ClearInputAndWaitForNextInput();
+                        string useItem = Console.ReadLine();
+                        foreach (var item in Inventory)
+                        {
+                            if (item.ToLower() == useItem)
+                            {
+                                foreach (var weapon in useItem)
+                                {
+                                    Content.WriteAnswer(string.Format("Du benutzt {0}", weapon), this);
+                                }
+                            }
+                            else
+                            {
+                                Content.FalseInput(useItem, " befindet sich nicht im Inventar", this);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Content.FalseInput(Content.FirstUpper(words[iCount]), "wurde nicht gefunden", this);
+                    }
+                 
                 }
             }
             else 
