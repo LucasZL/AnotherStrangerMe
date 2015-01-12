@@ -115,7 +115,7 @@ namespace AnotherStrangerMe
             //nehme
             else if (input == commandArray[2])
             {
-                inventoryNumber = 1;
+                inventoryNumber = 0;
                 bool foundItem = false;
                 for (int i = 1; i < words.Length; i++)
                 {
