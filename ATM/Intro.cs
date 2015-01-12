@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Threading;
 
 
 namespace AnotherStrangerMe
@@ -29,6 +30,12 @@ namespace AnotherStrangerMe
             if (key.Key == ConsoleKey.D1)
             {
                 Console.Clear();
+                Console.SetCursorPosition(45, 18);
+                Content.TypeWriter("Chicago, 27.Juli 1928");
+                Console.SetCursorPosition(50, 19);
+                Content.TypeWriter("10:28 Uhr");
+                Thread.Sleep(900);
+                Console.Clear();
                 Player player = new Player();
                 Layout layout = new Layout();
                 layout.DrawLayout();
@@ -40,10 +47,17 @@ namespace AnotherStrangerMe
                 Console.Clear();
                 string line = controls.ReadToEnd();
                 Console.WriteLine(line);
+                key = Console.ReadKey();
                 
 
                 if (key.Key == ConsoleKey.S)
                 {
+                    Console.Clear();
+                    Console.SetCursorPosition(45, 18);
+                    Content.TypeWriter("Chicago, 27.Juli 1928");
+                    Console.SetCursorPosition(50, 19);
+                    Content.TypeWriter("10:28 Uhr");
+                    Thread.Sleep(900);
                     Console.Clear();
                     Player player = new Player();
                     Layout layout = new Layout();
@@ -69,6 +83,12 @@ namespace AnotherStrangerMe
 
                 if (key.Key == ConsoleKey.S)
                 {
+                    Console.Clear();
+                    Console.SetCursorPosition(45, 18);
+                    Content.TypeWriter("Chicago, 27.Juli 1928");
+                    Console.SetCursorPosition(50, 19);
+                    Content.TypeWriter("10:28 Uhr");
+                    Thread.Sleep(900);
                     Console.Clear();
                     Player player = new Player();
                     Layout layout = new Layout();

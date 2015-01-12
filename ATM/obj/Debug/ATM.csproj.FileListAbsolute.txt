@@ -25,3 +25,9 @@ F:\Programmieren\NET\AnotherStrangerMe\ATM\obj\Debug\ATM.csprojResolveAssemblyRe
 C:\Users\engel_000\Documents\GitHub\AnotherStrangerMe\ATM\bin\Debug\ATM.exe.config
 C:\Users\engel_000\Documents\GitHub\AnotherStrangerMe\ATM\obj\Debug\ATM.exe
 C:\Users\engel_000\Documents\GitHub\AnotherStrangerMe\ATM\obj\Debug\ATM.pdb
+C:\Users\Scrapy\Documents\GitHub\AnotherStrangerMe\ATM\bin\Debug\ATM.exe.config
+C:\Users\Scrapy\Documents\GitHub\AnotherStrangerMe\ATM\obj\Debug\ATM.exe
+C:\Users\Scrapy\Documents\GitHub\AnotherStrangerMe\ATM\obj\Debug\ATM.pdb
+C:\Users\Scrapy\Documents\GitHub\AnotherStrangerMe\ATM\bin\Debug\ATM.exe
+C:\Users\Scrapy\Documents\GitHub\AnotherStrangerMe\ATM\bin\Debug\ATM.pdb
+C:\Users\Scrapy\Documents\GitHub\AnotherStrangerMe\ATM\obj\Debug\ATM.csprojResolveAssemblyReference.cache

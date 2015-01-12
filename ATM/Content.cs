@@ -78,5 +78,14 @@ namespace AnotherStrangerMe
                 iCounter++;
             }
         }
+
+        public static void TypeWriter(string text)
+        {
+            for (int i = 0; i < text.Length; i++)
+            {
+                Console.Write(text[i]);
+                Thread.Sleep(200);
+            }
+        }
     }
 }
