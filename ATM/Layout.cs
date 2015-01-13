@@ -22,6 +22,7 @@ namespace AnotherStrangerMe
         {
             string draw = layout.ReadToEnd();
             Console.WriteLine(draw);
+            RoomContent.writeRoomName();
         }
     }
 }

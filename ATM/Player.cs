@@ -25,7 +25,7 @@ namespace AnotherStrangerMe
 
         public Player()
         {
-            roomContent = new RoomContent();
+            roomContent = new RoomContent(this);
             room = roomContent.Room1();
             Inventory = new List<string>();
             name = "Luigi";
@@ -59,8 +59,8 @@ namespace AnotherStrangerMe
                 {
                     if(words[iCount] == "tuer")
                     {
+                        RoomContent.NextRoom(roomNumber, room);
                         Utility.WriteAnswer("Du bist in den nächsten Raum gegangen", this);
-                        RoomContent.NextRoom(roomNumber, room, this);
                         roomNumber++;
                     }
                     else
@@ -86,13 +86,9 @@ namespace AnotherStrangerMe
                     iCount++;
                 }
                 
-                for (int i = 1; i < words.Length; i++)
-                {
-                    specialCase = room.proofInput("2", words[i], room.RoomObjects);
-                    iCount++;
-                } 
+                specialCase = Utility.proofSpecialInput(words[iCount]);
 
-                if (foundItem)
+                if (specialCase)
                 {
                     Utility.WriteAnswer("Mit was möchtest du " + words[iCount] + " töten?", this);
                     Utility.ClearInputAndWaitForNextInput();
@@ -103,9 +99,10 @@ namespace AnotherStrangerMe
                         {
                             foreach (var weapons in weaponArray)
                             {
-                                if (weapons == weapon)
+                                if (weapons == weapon && specialCase)
                                 {
-                                    Utility.WriteAnswer("Du hast " + words[iCount] + " mit " + weapon + " getötet, bist du stolz auf dich?", this);
+                                    //Utility.WriteAnswer("Du hast " + words[iCount] + " mit " + weapon + " getötet, bist du stolz auf dich?", this);
+                                    Utility.ConfirmKill(words[iCount], this);
                                     room.deleteArrayEntry(room.RoomObjects, words[iCount]);
                                 }
                             }

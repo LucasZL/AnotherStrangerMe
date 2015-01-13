@@ -15,17 +15,21 @@ namespace AnotherStrangerMe
         public string[] descriptionArray;
         public string shortDescritpion;
         public string[] shortDescriptionArray;
+        public string roomName;
+        public string[] nextRoomsArray;
         public Room()
         {
 
         }
         
-        public Room(string[] RoomObjects, string description, string shortDescritpion)
+        public Room(string[] RoomObjects, string description, string shortDescritpion, string roomName, string nextRooms)
         {
             this.RoomObjects = RoomObjects;
             this.description = description;
             this.shortDescritpion = shortDescritpion;
+            this.roomName = roomName;
             shortDescriptionArray = shortDescritpion.Split(',');
+            nextRoomsArray = nextRooms.Split(',');
         }
         public Room(string[] array)
         {

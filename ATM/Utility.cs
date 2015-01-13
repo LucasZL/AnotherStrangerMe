@@ -9,7 +9,13 @@ namespace AnotherStrangerMe
 {
     static class Utility
     {
+        static bool luigiOneDead = false;
+        static bool luigiTwoDead = false;
+        static bool guardDead = false;
+        static bool receptionistDead = false;
+
         static string[] specialCases = { "luigi", "wachmann", "rezeptionist"};
+
         public static string FirstUpper(string upper)
         {
             if (String.IsNullOrEmpty(upper))
@@ -18,6 +24,7 @@ namespace AnotherStrangerMe
             }
             return upper.First().ToString().ToUpper() + upper.Substring(1);
         }
+
         public static void ClearInput(Player player)
         {
             Console.SetCursorPosition(0, 31);
@@ -31,6 +38,7 @@ namespace AnotherStrangerMe
             Console.SetCursorPosition(1, player.inputY);
             Console.WriteLine(answer);
         }
+
         public static void FalseInput(string falseWord, string reason, Player player)
         {
             ClearTopLane(player);
@@ -106,30 +114,57 @@ namespace AnotherStrangerMe
             }
         } 
 
+        public static bool proofSpecialInput(string input)
+        {
+            foreach (var item in specialCases)
+	        {
+                if (item == input)
+	            {
+                    return true; 
+	            }
+	        }
+            return false;
+        }
+
         public static void ConfirmKill(string victim, Player player)
         {
             if (player.roomNumber == 9)
             {
                 if (victim == "luigi")
                 {
-
+                    bool luigiTwoDead = true;
                 }
             }
             else 
             {
                 if (victim == "luigi")
                 {
+                    bool luigiOneDead = true;
                     EndScreen luigi = new EndScreen(player);
                 }
                 else if (victim == "wachmann")
                 {
-
+                    bool guardDead = true;
                 }
                 else if (victim == "rezeptionist")
                 {
-
+                    bool receptionistDead = true;
                 } 
             }
+        }
+
+        public static void StartGame()
+        {
+            Console.SetWindowSize(110, 37);
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Clear();
+
+
+            Intro intro = new Intro();
+            intro.DrawText();
+
+            Console.ReadLine();
         }
     }
 }

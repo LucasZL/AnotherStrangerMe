@@ -11,16 +11,7 @@ namespace AnotherStrangerMe
        
         static void Main(string[] args)
         {
-            Console.SetWindowSize(110,37);
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Clear();
-
-            
-            Intro intro = new Intro();
-            intro.DrawText();
-
-            Console.ReadLine();
+            Utility.StartGame();
         }
     }
 }
