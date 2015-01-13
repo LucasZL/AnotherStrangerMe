@@ -82,5 +82,18 @@ namespace AnotherStrangerMe
             }
             return false;
         }
+
+        public void deleteArrayEntry(string[] array, string a)
+        {
+            int iCount = 0;
+		    foreach (var item in array)
+	        {
+                if (item == array[iCount])
+                {
+                    array[iCount] = "jhgsfsdjkfhgiudrghiodhg";
+                }
+                iCount++;
+	        }	 
+        }
     }
 }
