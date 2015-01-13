@@ -235,8 +235,8 @@ namespace AnotherStrangerMe
 
             if (foundVictim)
             {
-                Content.WriteAnswer("Du hast " + victim + " mit " + words[iCount] + " getötet, bist du stolz auf dich?", this);
-                room.deleteArrayEntry(room.RoomObjects, words[iCount]);
+                Content.WriteAnswer("Du hast " + victim + " mit " + words[iCount+1] + " getötet, bist du stolz auf dich?", this);
+                room.deleteArrayEntry(room.RoomObjects, words[iCount+1]);
             }
         } 
     }

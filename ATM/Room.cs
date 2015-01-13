@@ -88,7 +88,7 @@ namespace AnotherStrangerMe
             int iCount = 0;
 		    foreach (var item in array)
 	        {
-                if (item == array[iCount])
+                if (item == a)
                 {
                     array[iCount] = "jhgsfsdjkfhgiudrghiodhg";
                 }
