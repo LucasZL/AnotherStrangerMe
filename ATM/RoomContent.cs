@@ -11,8 +11,10 @@ namespace AnotherStrangerMe
     {
         public static string[] roomArrayCommands;
         public static string[] roomDescription;
+        public static string[] examinarray;
         public static string[] shortDescriptionArray;
         static StreamReader arrayReader;
+        static StreamReader examinreader;
         static StreamReader description;
         static StreamReader shortdescription;
         private static List<Room> roomList;
@@ -20,12 +22,14 @@ namespace AnotherStrangerMe
         public RoomContent()
         {
             roomList = new List<Room>();
+            examinreader = new StreamReader("examinList.txt");
             arrayReader = new StreamReader("objectList.txt", Encoding.UTF8);
             description = new StreamReader("roomDescription.txt", Encoding.UTF8);
             shortdescription = new StreamReader("shortRoomDescription.txt", Encoding.UTF8);
             roomArrayCommands = arrayReader.ReadToEnd().Split(new Char[] { '|' });
             roomDescription = description.ReadToEnd().Split(new Char[] { '|' });
             shortDescriptionArray = shortdescription.ReadToEnd().Split(new Char[] { '|' });
+            examinarray = examinreader.ReadToEnd().Split(new Char[] { ',' });
         }
 
         public Room Room1()

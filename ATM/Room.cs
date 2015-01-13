@@ -66,7 +66,7 @@ namespace AnotherStrangerMe
         }
 
  
-        public bool proofInput(string kind, string item)
+        public bool proofInput(string kind, string item,string[] array)
         {
             int iCounter = 0;
             foreach (var kindOption in RoomObjects)
@@ -94,6 +94,20 @@ namespace AnotherStrangerMe
                 }
                 iCount++;
 	        }	 
+        }
+        public string returnExamintext(string item, string[] array, Player player)
+        {
+            int iCounter = 0;
+            foreach (var kindOption in array)
+            {
+                if (array[iCounter] == item)
+                {
+                    Content.WriteAnswer(string.Format("Du untersuchst {0}", item), player);
+                    return array[iCounter + 1];
+                }
+                iCounter++;
+            }
+            return array[iCounter];
         }
     }
 }

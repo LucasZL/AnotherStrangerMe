@@ -52,7 +52,7 @@ namespace AnotherStrangerMe
                 int iCount = 1;
                 for (int i = 2; i < words.Length; i++)
                 {
-                    objectFound = room.proofInput("5", words[i]);
+                    objectFound = room.proofInput("5", words[i], room.RoomObjects);
                     iCount++;
                 }
                 if (objectFound)
@@ -80,7 +80,7 @@ namespace AnotherStrangerMe
                 int iCount = 0;
                 for (int i = 1; i < words.Length; i++)
                 {
-                    foundItem = room.proofInput("2", words[i]);
+                    foundItem = room.proofInput("2", words[i],room.RoomObjects);
                     iCount++;
                 }
                 if (foundItem)
@@ -119,7 +119,7 @@ namespace AnotherStrangerMe
                 bool foundItem = false;
                 for (int i = 1; i < words.Length; i++)
                 {
-                    foundItem = room.proofInput("3", words[i]);
+                    foundItem = room.proofInput("3", words[i],room.RoomObjects);
                     inventoryNumber++;
                 }
                 if (foundItem)
@@ -147,18 +147,34 @@ namespace AnotherStrangerMe
             //untersuche
             else if (input == commandArray[3])
             {
+                bool objectFound = false;
+
+                int iCount = 0;
+
                 for (int i = 1; i < words.Length; i++)
                 {
-                    room.proofInput("4", words[i]);
+                    objectFound = room.proofInput("4",words[i],room.RoomObjects);
+                    iCount++;
+
+                    if (objectFound)
+                    {
+                        string examin = room.returnExamintext(words[iCount], RoomContent.examinarray, this);
+
+                        Content.WriteAnswer(examin, this);
+                    }
+                    else
+                    {
+                        Content.WriteAnswer("Sieht normal aus", this);
+                    }
                 }
-            } 
+            }
             //umgucken
             else if (input == commandArray[4])
             {
                 Content.WriteAnswer("Du siehst dich in dem Raum um:", this);
                 room.WriteDescritipon(this);
                 room.SideDescription();
-            } 
+            }
             //benutzen
             else if (input == commandArray[5])
             {
@@ -167,12 +183,12 @@ namespace AnotherStrangerMe
                 int iCount = 0;
                 for (int i = 1; i < words.Length; i++)
                 {
-                    foundItem = room.proofInput("1", words[i]);
+                    foundItem = room.proofInput("1", words[i], room.RoomObjects);
                     iCount++;
 
                     if (words[i].ToLower() == "spiegel")
                     {
-                        
+
                     }
                     if (foundItem)
                     {
@@ -191,14 +207,14 @@ namespace AnotherStrangerMe
                             }
                         }
                     }
-                    if(!isWeaponInInventory)
+                    if (!isWeaponInInventory)
                     {
                         Content.FalseInput(Content.FirstUpper(words[iCount]), "wurde im Inventar nicht gefunden", this);
                     }
-                 
+
                 }
             }
-            else 
+            else
             {
                 if (words[0] != "")
                 {
@@ -231,7 +247,7 @@ namespace AnotherStrangerMe
             Content.ClearInputAndWaitForNextInput();
             string victim = Console.ReadLine();
 
-                foundVictim = room.proofInput("2", victim);
+            foundVictim = room.proofInput("2", victim, room.RoomObjects);
 
             if (foundVictim)
             {
