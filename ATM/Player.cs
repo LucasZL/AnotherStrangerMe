@@ -11,7 +11,7 @@ namespace AnotherStrangerMe
     {
         RoomContent roomContent;
         public Room room;
-        int roomNumber = 1;
+        public int roomNumber = 1;
         public int inventoryNumber;
         public int inputY = 28;
         public string[] commandArray;
@@ -59,13 +59,13 @@ namespace AnotherStrangerMe
                 {
                     if(words[iCount] == "tuer")
                     {
-                        Content.WriteAnswer("Du bist in den nächsten Raum gegangen", this);
+                        Utility.WriteAnswer("Du bist in den nächsten Raum gegangen", this);
                         RoomContent.NextRoom(roomNumber, room, this);
                         roomNumber++;
                     }
                     else
                     {
-                        Content.WriteAnswer("Du bist zum / zur " + words[iCount] + " gegangen", this);
+                        Utility.WriteAnswer("Du bist zum / zur " + words[iCount] + " gegangen", this);
                     }
                 }
                 else
@@ -76,17 +76,26 @@ namespace AnotherStrangerMe
             //töte
             else if (input == commandArray[1])
             {
+                bool specialCase = false;
                 bool foundItem = false;
                 int iCount = 0;
+
                 for (int i = 1; i < words.Length; i++)
                 {
                     foundItem = room.proofInput("2", words[i],room.RoomObjects);
                     iCount++;
                 }
+                
+                for (int i = 1; i < words.Length; i++)
+                {
+                    specialCase = room.proofInput("2", words[i], room.RoomObjects);
+                    iCount++;
+                } 
+
                 if (foundItem)
                 {
-                    Content.WriteAnswer("Mit was möchtest du " + words[iCount] + " töten?", this);
-                    Content.ClearInputAndWaitForNextInput();
+                    Utility.WriteAnswer("Mit was möchtest du " + words[iCount] + " töten?", this);
+                    Utility.ClearInputAndWaitForNextInput();
                     string weapon = Console.ReadLine();
                     foreach (var item in Inventory)
                     {
@@ -96,20 +105,20 @@ namespace AnotherStrangerMe
                             {
                                 if (weapons == weapon)
                                 {
-                                    Content.WriteAnswer("Du hast " + words[iCount] + " mit " + weapon + " getötet, bist du stolz auf dich?", this);
+                                    Utility.WriteAnswer("Du hast " + words[iCount] + " mit " + weapon + " getötet, bist du stolz auf dich?", this);
                                     room.deleteArrayEntry(room.RoomObjects, words[iCount]);
                                 }
                             }
                         }
                         else
                         {
-                            Content.FalseInput(weapon, "wurde im Inventar nicht gefunden!", this);
+                            Utility.FalseInput(weapon, "wurde im Inventar nicht gefunden!", this);
                         }
                     }
                 }
                 else
                 {
-                    Content.FalseInput(words[iCount], "konnte nicht angegriffen werden!", this);
+                    Utility.FalseInput(words[iCount], "konnte nicht angegriffen werden!", this);
                 }
             } 
             //nehme
@@ -125,22 +134,22 @@ namespace AnotherStrangerMe
                 if (foundItem)
                 {
                     int entryCounter = 0;
-                    Inventory.Add(Content.FirstUpper(words[inventoryNumber]));
-                    Content.RightInput(Content.FirstUpper(words[inventoryNumber]), "wurde dem Inventar hinzugefügt!", this);
-                    Content.SwitchItemInArray(room.RoomObjects, words[inventoryNumber], "lksrughxkdlsujhg");
+                    Inventory.Add(Utility.FirstUpper(words[inventoryNumber]));
+                    Utility.RightInput(Utility.FirstUpper(words[inventoryNumber]), "wurde dem Inventar hinzugefügt!", this);
+                    Utility.SwitchItemInArray(room.RoomObjects, words[inventoryNumber], "lksrughxkdlsujhg");
                     foreach (var entry in room.shortDescriptionArray)
                     {
                         entryCounter++;
                         if (entry == words[inventoryNumber])
                         {
                             room.shortDescriptionArray[entryCounter-1] = "";
-                            room.SideDescription();
+                            //room.SideDescription();
                         }
                     }
                 }
                 else
                 {
-                    Content.FalseInput(Content.FirstUpper(words[inventoryNumber]), "konnte dem Inventar nicht hinzugefügt werden!", this);
+                    Utility.FalseInput(Utility.FirstUpper(words[inventoryNumber]), "konnte dem Inventar nicht hinzugefügt werden!", this);
                 }
                 UpdateInventory();
             } 
@@ -160,18 +169,18 @@ namespace AnotherStrangerMe
                     {
                         string examin = room.returnExamintext(words[iCount], RoomContent.examinarray, this);
 
-                        Content.WriteAnswer(examin, this);
+                        Utility.WriteAnswer(Utility.FirstUpper(examin), this);
                     }
                     else
                     {
-                        Content.WriteAnswer("Sieht normal aus", this);
+                        Utility.WriteAnswer("Sieht normal aus", this);
                     }
                 }
             }
             //umgucken
             else if (input == commandArray[4])
             {
-                Content.WriteAnswer("Du siehst dich in dem Raum um:", this);
+                Utility.WriteAnswer("Du siehst dich in dem Raum um:", this);
                 room.WriteDescritipon(this);
                 room.SideDescription();
             }
@@ -179,53 +188,39 @@ namespace AnotherStrangerMe
             else if (input == commandArray[5])
             {
                 bool isWeaponInInventory = false;
-                bool foundItem = false;
                 int iCount = 0;
-                for (int i = 1; i < words.Length; i++)
-                {
-                    foundItem = room.proofInput("1", words[i], room.RoomObjects);
-                    iCount++;
-
-                    if (words[i].ToLower() == "spiegel")
-                    {
-
-                    }
-                    if (foundItem)
-                    {
-                        Content.ClearInputAndWaitForNextInput();
+                 Utility.ClearInputAndWaitForNextInput();
                         foreach (var item in Inventory)
                         {
-                            if (item.ToLower() == words[iCount])
+                            if (item.ToLower() == words[iCount+1])
                             {
                                 isWeaponInInventory = true;
-                                Content.WriteAnswer(string.Format("Wen möchtest du mit {0} töten?", Content.FirstUpper(words[iCount])), this);
-                                kill();
+                                Utility.WriteAnswer(string.Format("Wen möchtest du mit {0} töten?", Utility.FirstUpper(words[iCount+1])), this);
+                                Utility.kill(room,words,this);
                             }
                             else
                             {
                                 isWeaponInInventory = false;
                             }
                         }
-                    }
+                    
                     if (!isWeaponInInventory)
                     {
-                        Content.FalseInput(Content.FirstUpper(words[iCount]), "wurde im Inventar nicht gefunden", this);
+                        Utility.FalseInput(Utility.FirstUpper(words[iCount]), "wurde im Inventar nicht gefunden", this);
                     }
-
-                }
             }
             else
             {
                 if (words[0] != "")
                 {
-                    Content.FalseInput(words[0], "konnte nicht ausgeführt werden!", this);
+                    Utility.FalseInput(words[0], "konnte nicht ausgeführt werden!", this);
                 }
                 else
                 {
-                    Content.FalseInput("Kein Befehl eingegeben!", "", this);
+                    Utility.FalseInput("Kein Befehl eingegeben!", "", this);
                 }
             }
-            Content.ClearInput(this);
+            Utility.ClearInput(this);
         }
         
 
@@ -240,20 +235,6 @@ namespace AnotherStrangerMe
             }
         }
 
-        public void kill()
-        {
-            bool foundVictim = false;
-            int iCount = 0;
-            Content.ClearInputAndWaitForNextInput();
-            string victim = Console.ReadLine();
-
-            foundVictim = room.proofInput("2", victim, room.RoomObjects);
-
-            if (foundVictim)
-            {
-                Content.WriteAnswer("Du hast " + victim + " mit " + words[iCount+1] + " getötet, bist du stolz auf dich?", this);
-                room.deleteArrayEntry(room.RoomObjects, words[iCount+1]);
-            }
-        } 
+        
     }
 }

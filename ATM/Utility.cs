@@ -7,8 +7,9 @@ using System.Threading;
 
 namespace AnotherStrangerMe
 {
-    static class Content
+    static class Utility
     {
+        static string[] specialCases = { "luigi", "wachmann", "rezeptionist"};
         public static string FirstUpper(string upper)
         {
             if (String.IsNullOrEmpty(upper))
@@ -35,7 +36,7 @@ namespace AnotherStrangerMe
             ClearTopLane(player);
             Console.SetCursorPosition(1, player.inputY);
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write(Content.FirstUpper(falseWord));
+            Console.Write(Utility.FirstUpper(falseWord));
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write(" " + reason);
         }
@@ -45,7 +46,7 @@ namespace AnotherStrangerMe
             ClearTopLane(player);
             Console.SetCursorPosition(1, player.inputY);
             Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.Write(Content.FirstUpper(rightWord));
+            Console.Write(Utility.FirstUpper(rightWord));
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write(" " + reason);
         }
@@ -85,6 +86,49 @@ namespace AnotherStrangerMe
             {
                 Console.Write(text[i]);
                 Thread.Sleep(200);
+            }
+        }
+
+        public static void kill(Room room,string[] words,Player player)
+        {
+            
+            bool foundVictim = false;
+            int iCount = 0;
+            Utility.ClearInputAndWaitForNextInput();
+            string victim = Console.ReadLine();
+
+            foundVictim = room.proofInput("2", victim, room.RoomObjects);
+
+            if (foundVictim)
+            {
+                Utility.WriteAnswer("Du hast " + victim + " mit " + words[iCount + 1] + " getötet, bist du stolz auf dich?", player);
+                room.deleteArrayEntry(room.RoomObjects, words[iCount + 1]);
+            }
+        } 
+
+        public static void ConfirmKill(string victim, Player player)
+        {
+            if (player.roomNumber == 9)
+            {
+                if (victim == "luigi")
+                {
+
+                }
+            }
+            else 
+            {
+                if (victim == "luigi")
+                {
+                    EndScreen luigi = new EndScreen(player);
+                }
+                else if (victim == "wachmann")
+                {
+
+                }
+                else if (victim == "rezeptionist")
+                {
+
+                } 
             }
         }
     }

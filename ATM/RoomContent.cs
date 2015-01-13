@@ -29,7 +29,7 @@ namespace AnotherStrangerMe
             roomArrayCommands = arrayReader.ReadToEnd().Split(new Char[] { '|' });
             roomDescription = description.ReadToEnd().Split(new Char[] { '|' });
             shortDescriptionArray = shortdescription.ReadToEnd().Split(new Char[] { '|' });
-            examinarray = examinreader.ReadToEnd().Split(new Char[] { ',' });
+            examinarray = examinreader.ReadToEnd().Split(new Char[] { '|' });
         }
 
         public Room Room1()

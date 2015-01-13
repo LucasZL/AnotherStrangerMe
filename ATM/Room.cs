@@ -38,7 +38,7 @@ namespace AnotherStrangerMe
             descriptionArray = description.Split(']');
             foreach (var line in descriptionArray)
             {
-                Content.WriteAnswer(descriptionArray[iCounter], player);
+                Utility.WriteAnswer(descriptionArray[iCounter], player);
                 iCounter++;
             }
         }
@@ -49,22 +49,19 @@ namespace AnotherStrangerMe
             int iCounter = 9;
             foreach (var shortDes in shortDescriptionArray)
             {
-                for (int i = 0; i < shortDes.Length; i++)
-                {
-                    Console.SetCursorPosition(81, iCounter);
-                    Console.WriteLine("- "+ Content.FirstUpper(shortDes));
-                    Thread.Sleep(100);
-                }
+                    if (shortDes != "")
+                    {
+                        Console.SetCursorPosition(81, iCounter);
+                        Console.WriteLine("- " + Utility.FirstUpper(shortDes));
+                        Thread.Sleep(100);
+                    }
+                    else
+                    {
+                        iCounter--;
+                    }
                 iCounter++;
             }
         }
-
-        
-        public void Kill(string victim)
-        {
-
-        }
-
  
         public bool proofInput(string kind, string item,string[] array)
         {
@@ -100,9 +97,9 @@ namespace AnotherStrangerMe
             int iCounter = 0;
             foreach (var kindOption in array)
             {
-                if (array[iCounter] == item)
+                if (array[iCounter].ToLower() == item)
                 {
-                    Content.WriteAnswer(string.Format("Du untersuchst {0}", item), player);
+                    Utility.WriteAnswer(string.Format("Du untersuchst {0} ",Utility.FirstUpper(item)), player);
                     return array[iCounter + 1];
                 }
                 iCounter++;

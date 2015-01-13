@@ -54,9 +54,9 @@ namespace AnotherStrangerMe
                 {
                     Console.Clear();
                     Console.SetCursorPosition(45, 18);
-                    Content.TypeWriter("Chicago, 27.Juli 1928");
+                    Utility.TypeWriter("Chicago, 27.Juli 1928");
                     Console.SetCursorPosition(50, 19);
-                    Content.TypeWriter("10:28 Uhr");
+                    Utility.TypeWriter("10:28 Uhr");
                     Thread.Sleep(900);
                     Console.Clear();
                     Player player = new Player();
@@ -85,9 +85,9 @@ namespace AnotherStrangerMe
                 {
                     Console.Clear();
                     Console.SetCursorPosition(45, 18);
-                    Content.TypeWriter("Chicago, 27.Juli 1928");
+                    Utility.TypeWriter("Chicago, 27.Juli 1928");
                     Console.SetCursorPosition(50, 19);
-                    Content.TypeWriter("10:28 Uhr");
+                    Utility.TypeWriter("10:28 Uhr");
                     Thread.Sleep(900);
                     Console.Clear();
                     Player player = new Player();
