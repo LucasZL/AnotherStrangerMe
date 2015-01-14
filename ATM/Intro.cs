@@ -29,12 +29,12 @@ namespace AnotherStrangerMe
 
             if (key.Key == ConsoleKey.D1)
             {
-                //Console.Clear();
-                //Console.SetCursorPosition(45, 18);
-                //Content.TypeWriter("Chicago, 27.Juli 1928");
-                //Console.SetCursorPosition(50, 19);
-                //Content.TypeWriter("10:28 Uhr");
-                //Thread.Sleep(900);
+                Console.Clear();
+                Console.SetCursorPosition(45, 18);
+                Utility.TypeWriter("KooperTown, 27.Juli 1928");
+                Console.SetCursorPosition(50, 19);
+                Utility.TypeWriter("10:28 Uhr");
+                Thread.Sleep(900);
                 Console.Clear();
                 Player player = new Player();
                 Layout layout = new Layout();
@@ -54,7 +54,7 @@ namespace AnotherStrangerMe
                 {
                     Console.Clear();
                     Console.SetCursorPosition(45, 18);
-                    Utility.TypeWriter("Chicago, 27.Juli 1928");
+                    Utility.TypeWriter("KooperTown, 27.Juli 1928");
                     Console.SetCursorPosition(50, 19);
                     Utility.TypeWriter("10:28 Uhr");
                     Thread.Sleep(900);
@@ -85,7 +85,7 @@ namespace AnotherStrangerMe
                 {
                     Console.Clear();
                     Console.SetCursorPosition(45, 18);
-                    Utility.TypeWriter("Chicago, 27.Juli 1928");
+                    Utility.TypeWriter("KooperTown, 27.Juli 1928");
                     Console.SetCursorPosition(50, 19);
                     Utility.TypeWriter("10:28 Uhr");
                     Thread.Sleep(900);

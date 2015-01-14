@@ -133,6 +133,7 @@ namespace AnotherStrangerMe
                 if (victim == "luigi")
                 {
                     bool luigiTwoDead = true;
+                    WinScreen luigi = new WinScreen(player);
                 }
             }
             else 
@@ -145,6 +146,7 @@ namespace AnotherStrangerMe
                 else if (victim == "wachmann")
                 {
                     bool guardDead = true;
+
                 }
                 else if (victim == "rezeptionist")
                 {

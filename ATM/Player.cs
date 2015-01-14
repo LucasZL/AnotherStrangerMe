@@ -61,7 +61,7 @@ namespace AnotherStrangerMe
                     {
                         RoomContent.NextRoom(roomNumber, room);
                         Utility.WriteAnswer("Du bist in den nächsten Raum gegangen", this);
-                        roomNumber++;
+                        
                     }
                     else
                     {
@@ -165,8 +165,11 @@ namespace AnotherStrangerMe
                     if (objectFound)
                     {
                         string examin = room.returnExamintext(words[iCount], RoomContent.examinarray, this);
-
-                        Utility.WriteAnswer(Utility.FirstUpper(examin), this);
+                        string[] output = examin.Split(new Char[] { ']' });
+                        foreach (var item in output)
+                        {
+                            Utility.WriteAnswer(item, this);
+                        }
                     }
                     else
                     {

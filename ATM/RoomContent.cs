@@ -52,6 +52,7 @@ namespace AnotherStrangerMe
         {
             for (int i = 0; i < roomArrayCommands.Length; i++)
             {
+                
                 roomList.Add(new Room(roomArrayCommands[i].Split(new Char[] { ',' }), roomDescription[i], shortDescriptionArray[i], roomNumber[i],nextRooms[i]));
             }
         }
@@ -61,13 +62,11 @@ namespace AnotherStrangerMe
         {
             if (currentRoom.nextRoomsArray.Count() > 1)
             {
-                string options = "";
+                Utility.WriteAnswer("Wohin möchtest du gehen?", player);
                 foreach (var room in currentRoom.nextRoomsArray)
                 {
-                    options += " " + room;
+                    Utility.RightInput(room, "", player);
                 }
-                Utility.WriteAnswer("Wohin möchtest du gehen?", player);
-                Utility.RightInput(options, "", player);
                 Utility.ClearInputAndWaitForNextInput();
                 string input = Console.ReadLine();
                 foreach (var room in currentRoom.nextRoomsArray)
@@ -84,7 +83,7 @@ namespace AnotherStrangerMe
             }
             else
             {
-                Utility.FalseInput("Kein Raum erreichbar!", "", player);
+                Utility.FalseInput("Kein Raum erreichbar!","", player);
             }
         }
 
