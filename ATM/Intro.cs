@@ -33,7 +33,7 @@ namespace AnotherStrangerMe
                 Console.SetCursorPosition(45, 18);
                 Utility.TypeWriter("KooperTown, 27.Juli 1928");
                 Console.SetCursorPosition(50, 19);
-                Utility.TypeWriter("10:28 Uhr");
+                Utility.TypeWriter(DateTime.Now.ToString("hh:mm:ss tt", System.Globalization.DateTimeFormatInfo.InvariantInfo));
                 Thread.Sleep(900);
                 Console.Clear();
                 Player player = new Player();
@@ -56,7 +56,7 @@ namespace AnotherStrangerMe
                     Console.SetCursorPosition(45, 18);
                     Utility.TypeWriter("KooperTown, 27.Juli 1928");
                     Console.SetCursorPosition(50, 19);
-                    Utility.TypeWriter("10:28 Uhr");
+                    Utility.TypeWriter(DateTime.Now.ToString("hh:mm:ss tt", System.Globalization.DateTimeFormatInfo.InvariantInfo));
                     Thread.Sleep(900);
                     Console.Clear();
                     Player player = new Player();
@@ -87,7 +87,7 @@ namespace AnotherStrangerMe
                     Console.SetCursorPosition(45, 18);
                     Utility.TypeWriter("KooperTown, 27.Juli 1928");
                     Console.SetCursorPosition(50, 19);
-                    Utility.TypeWriter("10:28 Uhr");
+                    Utility.TypeWriter(DateTime.Now.ToString("hh:mm:ss tt", System.Globalization.DateTimeFormatInfo.InvariantInfo));
                     Thread.Sleep(900);
                     Console.Clear();
                     Player player = new Player();

@@ -38,7 +38,7 @@ namespace AnotherStrangerMe
 
         public void Input()
         {
-
+            Utility.CheckGuard(this);
             Console.SetCursorPosition(1, 31);
             string read = Console.ReadLine().ToLower();
 
@@ -70,7 +70,7 @@ namespace AnotherStrangerMe
                 }
                 else
                 {
-                    Console.WriteLine(words[iCount] + " wurde nicht gefunden");
+                    Utility.FalseInput(words[iCount],  " wurde nicht gefunden", this);
                 }
             } 
             //töte

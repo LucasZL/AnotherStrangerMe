@@ -9,10 +9,7 @@ namespace AnotherStrangerMe
 {
     static class Utility
     {
-        static bool luigiOneDead = false;
-        static bool luigiTwoDead = false;
         static bool guardDead = false;
-        static bool receptionistDead = false;
 
         static string[] specialCases = { "luigi", "wachmann", "rezeptionist"};
 
@@ -95,6 +92,7 @@ namespace AnotherStrangerMe
                 Console.Write(text[i]);
                 Thread.Sleep(200);
             }
+            Thread.Sleep(3000);
         }
 
         public static void kill(Room room,string[] words,Player player)
@@ -132,7 +130,6 @@ namespace AnotherStrangerMe
             {
                 if (victim == "luigi")
                 {
-                    bool luigiTwoDead = true;
                     WinScreen luigi = new WinScreen(player);
                 }
             }
@@ -140,7 +137,6 @@ namespace AnotherStrangerMe
             {
                 if (victim == "luigi")
                 {
-                    bool luigiOneDead = true;
                     EndScreen luigi = new EndScreen(player);
                 }
                 else if (victim == "wachmann")
@@ -150,7 +146,6 @@ namespace AnotherStrangerMe
                 }
                 else if (victim == "rezeptionist")
                 {
-                    bool receptionistDead = true;
                 } 
             }
         }
@@ -167,6 +162,20 @@ namespace AnotherStrangerMe
             intro.DrawText();
 
             Console.ReadLine();
+        }
+        public static void CheckGuard(Player player)
+        {
+            if (player.roomNumber == 4 && !guardDead)
+            {
+                FalseInput("Du bist tot! Der Wachmann hat dich getötet! ", "", player);
+                System.Threading.Thread.Sleep(5000);
+                EndScreen endscreen = new EndScreen(player);
+            }
+            else
+            {
+
+            }
+            
         }
     }
 }

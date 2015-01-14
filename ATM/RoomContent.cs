@@ -92,6 +92,7 @@ namespace AnotherStrangerMe
             Console.MoveBufferArea(0, 35, 23, 7, 81, 9);
             player.room = null;
             player.room = roomList[roomNumber];
+            player.roomNumber = roomNumber;
             Console.SetCursorPosition(0, 7);
             Console.WriteLine("|Umschauen                      |						|                       |");
             writeRoomName();
