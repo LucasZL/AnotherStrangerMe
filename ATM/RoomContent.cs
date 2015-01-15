@@ -79,7 +79,7 @@ namespace AnotherStrangerMe
             }
             else if (currentRoom.nextRoomsArray.Count() == 1)
             {
-                prepareNextRoom(roomNumber);
+                prepareNextRoom(getRoomNumber(currentRoom.nextRoomsArray[0]));
             }
             else
             {
@@ -104,7 +104,7 @@ namespace AnotherStrangerMe
             Console.WriteLine("Raum: " + player.room.roomName);
         }
 
-        private static int getRoomNumber(string roomName)
+        public static int getRoomNumber(string roomName)
         {
             int iCounter = 0;
             foreach (var room in roomNumber)

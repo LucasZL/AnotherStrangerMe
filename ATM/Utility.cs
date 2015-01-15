@@ -126,7 +126,7 @@ namespace AnotherStrangerMe
 
         public static void ConfirmKill(string victim, Player player)
         {
-            if (player.roomNumber == 9)
+            if (player.roomNumber == 8)
             {
                 if (victim == "luigi")
                 {
@@ -141,8 +141,8 @@ namespace AnotherStrangerMe
                 }
                 else if (victim == "wachmann")
                 {
-                    bool guardDead = true;
-
+                    guardDead = true;
+                    RightInput("Der Wachmann ist tot!", "", player);
                 }
                 else if (victim == "rezeptionist")
                 {
@@ -171,11 +171,18 @@ namespace AnotherStrangerMe
                 System.Threading.Thread.Sleep(5000);
                 EndScreen endscreen = new EndScreen(player);
             }
-            else
+            else 
             {
 
             }
             
+        }
+
+        internal static void TakeBeer(Player player)
+        {
+            Utility.FalseInput("", "Du nimmst das Bier und trinkst es aus. Schnell wird dir klar das etwas nicht stimmt. Bereits nach wenigen Augenblicken kippst du tot um.", player);
+            System.Threading.Thread.Sleep(10000);
+            EndScreen es = new EndScreen(player);
         }
     }
 }

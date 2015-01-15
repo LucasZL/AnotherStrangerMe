@@ -31,7 +31,7 @@ namespace AnotherStrangerMe
             name = "Luigi";
             lastInputs = new string[18];
             commandArray = new string[] { "gehe", "töte", "nehme", "untersuche", "umschauen", "benutze" };
-            weaponArray = new string[] { "messer", "schrotflinte", "frau", "pistole" };
+            weaponArray = new string[] { "messer", "waffe", "frau", "pistole" };
         }
 
 
@@ -187,6 +187,10 @@ namespace AnotherStrangerMe
             //benutzen
             else if (input == commandArray[5])
             {
+                if (RoomContent.getRoomNumber(room.roomName) == 5 && words[1] == "Bier");
+                {
+                    Utility.TakeBeer(this);
+                }
                 bool isWeaponInInventory = false;
                 int iCount = 0;
                  Utility.ClearInputAndWaitForNextInput();
